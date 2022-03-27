@@ -9,10 +9,7 @@ namespace lab3
 {
 	using namespace std;
 
-	//x3 – 3 * x + 1 = 0
-	//double get_func(double x) { return pow(log(x), 2) + 0.25 * x - 3; }
-	//double get_derivative(double x) { return 2 * log(x) / x + 0.25; }
-	//double get_derivative2(double x) { return 2 * (-log(x) + 1) / pow(x, 2); }
+#define BEGIN_SEARCHING -7.
 
 	double get_func(double x);
 	double get_derivative(double x);
@@ -52,6 +49,18 @@ namespace lab3
 	namespace task4
 	{
 		pair<double, double>* method_iterations(double a, double b);
+		void run(void);
+	}
+
+	namespace task5 
+	{
+		pair<double, double>* method_secant(double a, double b);
+		void run(void);
+	}
+
+	namespace task6
+	{
+		pair<double, double>* method_combined(double a, double b);
 		void run(void);
 	}
 
