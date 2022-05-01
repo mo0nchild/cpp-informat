@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <locale>
 
-#include "labs/lab3/lab3.h"
+#include "labs/lab4/lab4.h"
 
 using namespace std;
 
@@ -9,7 +9,7 @@ int main()
 {
     setlocale(LC_ALL, "RUS");
 
-    lab3::lab();
+    lab4::lab();
 
     return 0;
 }

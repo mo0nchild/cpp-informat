@@ -10,10 +10,11 @@ namespace lab3
 	using namespace std;
 
 #define BEGIN_SEARCHING -7.
+#define MY_EPS 0.001
 
-	double get_func(double x);
-	double get_derivative(double x);
-	double get_derivative2(double x);
+	double get_func(double x); // функция варианта	
+	double get_derivative(double x); // первая производная функции
+	double get_derivative2(double x); // вторая производная функции
 
 	namespace isolation_interval 
 	{
@@ -24,7 +25,9 @@ namespace lab3
 
 		using interval_t = pair<double, double>;
 
+		// фукнция для получения интервала изоляции корня от begin
 		interval_t get_isolation(double begin);
+		 // фукнция для получения множества интервалов изоляции корня от begin
 		vector<interval_t> get_isolation_list(double begin);
 	}
 

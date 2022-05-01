@@ -6,6 +6,9 @@ using isolation_interval::interval_t;
 double lab3::get_func(double x) { return pow(log(x), 2) + 0.25 * x - 3; }
 double lab3::get_derivative(double x) { return 2 * log(x) / x + 0.25; }
 double lab3::get_derivative2(double x) { return (2 - 2 * log(x)) / pow(x, 2); }
+//double lab3::get_func(double x) { return pow(x, 3) - 3 * x + 1; }
+//double lab3::get_derivative(double x) { return 3 * pow(x, 2) - 3; }
+//double lab3::get_derivative2(double x) { return 6*x; }
 
 interval_t isolation_interval::get_isolation(double begin)
 {
@@ -50,7 +53,7 @@ vector<interval_t> isolation_interval::get_isolation_list(double begin)
 
 pair<double, double>* task1::method_dichotomies(double a, double b) 
 {
-	const double eps = 0.001;
+	const double eps = MY_EPS;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	double f1 = get_func(a), f2;
@@ -82,7 +85,7 @@ void task1::run(void)
 
 pair<double, double>* task2::method_chord(double a, double b)
 {
-	const double eps = 0.001;
+	const double eps = MY_EPS;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	double f1 = get_func(a), f2 = get_derivative2(a);
@@ -143,7 +146,7 @@ void task2::run(void)
 
 pair<double, double>* task3::method_newton(double a, double b)
 {
-	const double eps = 0.001;
+	const double eps = MY_EPS;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	double f = get_func(b), f2 = get_derivative2(b), h, x, f1;
@@ -163,7 +166,7 @@ pair<double, double>* task3::method_newton(double a, double b)
 		if (fabs(h) <= eps) break;
 	}
 
-	cout << n << endl;
+	cout << "n: " << n << endl;
 	return new pair<double, double>(x, get_func(x));
 }
 
@@ -177,7 +180,7 @@ void task3::run(void)
 
 pair<double, double>* task4::method_iterations(double a, double b) 
 {
-	const double eps = 0.001, N = 100;
+	const double eps = MY_EPS, N = 100;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	auto G = [&](double x) -> double { return x - get_func(x) / get_derivative(x); };
@@ -204,7 +207,7 @@ void task4::run(void)
 
 pair<double, double>* task5::method_secant(double a, double b)
 {
-	const double eps = 0.001;
+	const double eps = MY_EPS;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	int n;
@@ -234,7 +237,7 @@ void task5::run(void)
 
 pair<double, double>* task6::method_combined(double a, double b)
 {
-	const double eps = 0.001;
+	const double eps = MY_EPS;
 	if (get_func(a) * get_func(b) >= 0) return nullptr;
 
 	int n;
@@ -301,7 +304,7 @@ void test_method(pair<double, double>* (*method)(double a, double b), double beg
 void lab3::lab(void) 
 {
 	cout << "[ Метод Дихотомии (поиск корней: х = -7) ]" << endl;
-	test_method(task1::method_dichotomies, 2);
+	test_method(task1::method_dichotomies, -7);
 	cout << "------------------------------" << endl;
 
 	cout << "[ Метод Хорд (поиск корней: х = -7) ]" << endl;
@@ -321,6 +324,6 @@ void lab3::lab(void)
 	cout << "------------------------------" << endl;
 
 	cout << "[ Комбинированный Метод (поиск корней: х = -7) ]" << endl;
-	test_method(task6::method_combined, 2);
+	test_method(task6::method_combined, -7);
 	cout << "------------------------------" << endl;
 }
