@@ -5,6 +5,7 @@
 #include <vector>
 #include <cmath>
 #include <memory>
+#include <iomanip>
 
 namespace lab4
 {
@@ -61,14 +62,43 @@ namespace lab4
 
 	namespace task1
 	{
-		vector<double>* matrix_method(SquareMatrix matrix, vector<double> stripe);
+		vector<double>* matrix_method(SquareMatrix matrix, std::vector<double> stripe);
 		void run(void);
 	}
 
 	namespace task2
 	{
-		vector<double>* gauss_method(SquareMatrix matrix, vector<double> stripe);
+		vector<double>* gauss_method(SquareMatrix matrix, std::vector<double> stripe);
 		void run(void);
+	}
+	
+	struct IterationResult 
+	{
+	private:	const matrix_t iteration_values;
+	private:	const std::vector<double> method_result;
+	public:
+		const int& get_size(void) const noexcept { return this->method_result.size(); }
+		const vector<vector<double>>& get_iter(void) const { return iteration_values; }
+		const double get_result(int x_index) const
+		{
+			if (x_index < this->method_result.size() && x_index >= 0) { return method_result[x_index]; }
+			throw std::out_of_range("indexs_out_of_range");
+		}
+	public:
+		explicit IterationResult(matrix_t iter, std::vector<double> result)
+			: iteration_values(iter), method_result(result) { }
+	};
+
+	namespace task3
+	{
+		IterationResult* jacobi_method(SquareMatrix matrix, std::vector<double> stripe, double esp);
+		void run(const double ESP = 0.01);
+	}
+
+	namespace task4
+	{
+		IterationResult* zeidel_method(SquareMatrix matrix, std::vector<double> stripe, double esp);
+		void run(const double ESP = 0.01);
 	}
 
 	void lab(void);
