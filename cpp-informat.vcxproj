@@ -145,12 +145,14 @@
     <ClCompile Include="labs\lab2\lab2.cpp" />
     <ClCompile Include="labs\lab3\lab3.cpp" />
     <ClCompile Include="labs\lab4\lab4.cpp" />
+    <ClCompile Include="labs\lab5\lab5.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="labs\lab1\lab1.h" />
     <ClInclude Include="labs\lab2\lab2.h" />
     <ClInclude Include="labs\lab3\lab3.h" />
     <ClInclude Include="labs\lab4\lab4.h" />
+    <ClInclude Include="labs\lab5\lab5.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
