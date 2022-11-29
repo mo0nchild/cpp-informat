@@ -117,6 +117,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -146,6 +147,7 @@
     <ClCompile Include="labs\lab3\lab3.cpp" />
     <ClCompile Include="labs\lab4\lab4.cpp" />
     <ClCompile Include="labs\lab5\lab5.cpp" />
+    <ClCompile Include="labs\lab6\lab6.ixx" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="labs\lab1\lab1.h" />
