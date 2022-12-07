@@ -1,7 +1,7 @@
 ﻿#include <iostream>
 #include <locale>
 
-import lab6_modele;
+import lab6_module;
 using namespace std;
 
 int main()

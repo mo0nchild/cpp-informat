@@ -102,6 +102,8 @@ namespace lab6 {
 		const std::shared_ptr<lab6::LabResult> result2 = calculator->off_automatic()
 			->calculate_value(h, -1, 2 * M_PI - 1, 8);
 
+		delete calculator;
+
 		std::printf("|%5s|%7s|%7s|%7s|%7s|\n", "i", "x1", "y1", "x2", "y2");
 		for (int i = 0; i < result1.get()->get_i(); i++) {
 			auto current_result1 = result1.get()->get_list()[i];
